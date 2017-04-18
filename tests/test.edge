@@ -1,0 +1,56 @@
+<h2> Need to make sure HTML works fine </h2>
+
+2 === 1 + 1 
+
+Also we should be able to write JS inside {{ 2 + 2 }} or {{ user.username }}
+
+{{-- Let's write some comments --}}
+
+@if(username)
+    <p> Hello {{ username }} </p>
+@else
+    <p> Hello Guest {{{ $date.ago }}} </p>
+@endif
+
+@component('alert', type = 'error')
+@endcomponent
+
+How about self closing tags
+
+@!each(user in users, include = 'partials.user')
+
+Also keywords like
+@debugger
+@super
+
+With some HTML comments
+<!-- Edge has nothing to do with this -->
+
+You can instruct edge to skip the processing of mustache.
+@{{ This will never be processed }}
+
+Also for multiple markup you can use the raw tag
+
+@raw
+    Everything inside me will be skipped.
+    @section('sidebar')
+    @endsection
+    <h2> Some html </h2>
+@endraw
+
+<section>
+    <div class="__wrapper">
+        <div class="__footer">
+          <ul>
+            <li>
+              <a href="https://twitter.com/intent/tweet?url=http://adonisjs.com&text=I am using AdonisJs, a practical MVC framework for nodejs&hashtags=nodejs,adonisframework" target="_blank">
+                <img src="/assets/twitter.svg" class="{{ variable }}">
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/adonisjs/adonis-framework" target="_blank"><img src="/assets/github.svg"></a>
+            </li>
+          </ul>
+        </div>
+    </div>
+  </section>
