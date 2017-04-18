@@ -1,4 +1,4 @@
-# Laravel Blade Snippets
+# Edge Support
 
 Edge snippets and syntax highlight support for Visual Studio Code.
 
