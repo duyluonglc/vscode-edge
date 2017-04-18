@@ -665,7 +665,7 @@
           "include": "#variables"
         },
         {
-          "match": "(?<=[a-zA-Z0-9_\\x{7f}-\\x{ff}])(->)([a-zA-Z_\\x{7f}-\\x{ff}][a-zA-Z0-9_\\x{7f}-\\x{ff}]*?)\\b",
+          "match": "(?<=[a-zA-Z0-9_\\x{7f}-\\x{ff}])(\\.)([a-zA-Z_\\x{7f}-\\x{ff}][a-zA-Z0-9_\\x{7f}-\\x{ff}]*?)\\b",
           "captures": {
             "1": {
               "name": "keyword.operator.js"
@@ -706,7 +706,7 @@
       ]
     },
     "object": {
-      "match": "(?x)(->)\r\n \t\t\t\t(?:\r\n \t\t\t\t ([A-Za-z_][A-Za-z_0-9]*)\\s*\\(\r\n \t\t\t\t |\r\n \t\t\t\t ((\\$+)?[a-zA-Z_\\x{7f}-\\x{ff}][a-zA-Z0-9_\\x{7f}-\\x{ff}]*)\r\n \t\t\t\t)?",
+      "match": "(?x)(\\.)\r\n \t\t\t\t(?:\r\n \t\t\t\t ([A-Za-z_][A-Za-z_0-9]*)\\s*\\(\r\n \t\t\t\t |\r\n \t\t\t\t ((\\$+)?[a-zA-Z_\\x{7f}-\\x{ff}][a-zA-Z0-9_\\x{7f}-\\x{ff}]*)\r\n \t\t\t\t)?",
       "captures": {
         "3": {
           "name": "variable.other.property.js"
@@ -1643,9 +1643,9 @@
       "name": "string.quoted.double.js"
     },
     "var_basic": {
-      "match": "(?x)\r\n\t\t\t (\\$+)[a-zA-Z_\\x{7f}-\\x{ff}]\r\n\t\t\t [a-zA-Z0-9_\\x{7f}-\\x{ff}]*?\\b",
+      "match": "(?x)\r\n\t\t\t [a-zA-Z_\\x{7f}-\\x{ff}]\r\n\t\t\t [a-zA-Z0-9_\\x{7f}-\\x{ff}]*?\\b",
       "captures": {
-        "1": {
+        "0": {
           "name": "punctuation.definition.variable.js"
         }
       },
@@ -1740,7 +1740,7 @@
           "comment": "Simple syntax with braces: \"foo${bar}baz\""
         },
         {
-          "match": "(?x)\r\n\t\t\t\t\t\t((\\$)(?<name>[a-zA-Z_\\x{7f}-\\x{ff}][a-zA-Z0-9_\\x{7f}-\\x{ff}]*))\r\n\t\t\t\t\t\t(?:\r\n\t\t\t\t\t\t\t(->)\r\n\t\t\t\t\t\t\t\t(?:\r\n\t\t\t\t\t\t\t\t\t(\\g<name>)\r\n\t\t\t\t\t\t\t\t\t|\r\n\t\t\t\t\t\t\t\t\t(\\$\\g<name>)\r\n\t\t\t\t\t\t\t\t)\r\n\t\t\t\t\t\t\t|\r\n\t\t\t\t\t\t\t(\\[)\r\n\t\t\t\t\t\t\t\t(?:(\\d+)|((\\$)\\g<name>)|(\\w+)|(.*?))\r\n\t\t\t\t\t\t\t(\\])\r\n\t\t\t\t\t\t)?\r\n\t\t\t\t\t\t",
+          "match": "(?x)\r\n\t\t\t\t\t\t((\\$)(?<name>[a-zA-Z_\\x{7f}-\\x{ff}][a-zA-Z0-9_\\x{7f}-\\x{ff}]*))\r\n\t\t\t\t\t\t(?:\r\n\t\t\t\t\t\t\t(\\.)\r\n\t\t\t\t\t\t\t\t(?:\r\n\t\t\t\t\t\t\t\t\t(\\g<name>)\r\n\t\t\t\t\t\t\t\t\t|\r\n\t\t\t\t\t\t\t\t\t(\\$\\g<name>)\r\n\t\t\t\t\t\t\t\t)\r\n\t\t\t\t\t\t\t|\r\n\t\t\t\t\t\t\t(\\[)\r\n\t\t\t\t\t\t\t\t(?:(\\d+)|((\\$)\\g<name>)|(\\w+)|(.*?))\r\n\t\t\t\t\t\t\t(\\])\r\n\t\t\t\t\t\t)?\r\n\t\t\t\t\t\t",
           "captures": {
             "10": {
               "name": "punctuation.definition.variable.js"
@@ -1779,11 +1779,11 @@
               "name": "variable.other.index.js"
             }
           },
-          "comment": "Simple syntax: $foo, $foo[0], $foo[$bar], $foo->bar"
+          "comment": "Simple syntax: $foo, $foo[0], $foo[$bar], $foo\\.bar"
         },
         {
           "end": "\\}",
-          "begin": "(?=(?<regex>(?#simple syntax)\\$(?<name>[a-zA-Z_\\x{7f}-\\x{ff}][a-zA-Z0-9_\\x{7f}-\\x{ff}]*)(?:\\[(?<index>[a-zA-Z0-9_\\x{7f}-\\x{ff}]+|\\$\\g<name>)\\]|->\\g<name>(\\(.*?\\))?)?|(?#simple syntax with braces)\\$\\{(?:\\g<name>(?<indices>\\[(?:\\g<index>|'(?:\\\\.|[^'\\\\])*'|\"(?:\\g<regex>|\\\\.|[^\"\\\\])*\")\\])?|\\g<complex>|\\$\\{\\g<complex>\\})\\}|(?#complex syntax)\\{(?<complex>\\$(?<segment>\\g<name>(\\g<indices>*|\\(.*?\\))?)(?:->\\g<segment>)*|\\$\\g<complex>|\\$\\{\\g<complex>\\})\\}))\\{",
+          "begin": "(?=(?<regex>(?#simple syntax)\\$(?<name>[a-zA-Z_\\x{7f}-\\x{ff}][a-zA-Z0-9_\\x{7f}-\\x{ff}]*)(?:\\[(?<index>[a-zA-Z0-9_\\x{7f}-\\x{ff}]+|\\$\\g<name>)\\]|\\.\\g<name>(\\(.*?\\))?)?|(?#simple syntax with braces)\\$\\{(?:\\g<name>(?<indices>\\[(?:\\g<index>|'(?:\\\\.|[^'\\\\])*'|\"(?:\\g<regex>|\\\\.|[^\"\\\\])*\")\\])?|\\g<complex>|\\$\\{\\g<complex>\\})\\}|(?#complex syntax)\\{(?<complex>\\$(?<segment>\\g<name>(\\g<indices>*|\\(.*?\\))?)(?:\\.\\g<segment>)*|\\$\\g<complex>|\\$\\{\\g<complex>\\})\\}))\\{",
           "beginCaptures": {
             "0": {
               "name": "punctuation.definition.variable.js"
@@ -2097,10 +2097,31 @@
       "name": "embedded.line.html"
     },
     {
-      "begin": "(\\s{0}|^)(\\@)\\b(if|elseif|forelse|foreach|for|while|extends|unless|each|yield|lang|choice|section|include|push|hasSection|continue|break|stack|inject|includeIf|component|slot|can|elsecan|cannot|elsecannot)\\b(?=(|\\s*|)\\()",
+      "begin": "\\@raw",
+      "beginCaptures": {
+        "0": {
+          "name": "support.constant.edge"
+        }
+      },
+      "patterns": [
+        {
+          "include": "text.html.basic"
+        }
+      ],
+      "comment": "Catches the remainder.",
+      "end": "\\@endraw",
+      "endCaptures": {
+        "0": {
+          "name": "support.constant.edge"
+        }
+      },
+      "name": "embedded.line.html"
+    },
+    {
+      "begin": "(\\s{0}|^)(\\@\\!?)\\b(|if|elseif|forelse|foreach|for|while|extends|unless|each|yield|lang|choice|section|include|push|hasSection|continue|break|stack|inject|includeIf|component|slot|can|elsecan|cannot|elsecannot)\\b(?=(|\\s*|)\\()",
       "beginCaptures": {
         "3": {
-          "name": "entity.name.tag.edge"
+          "name": "support.constant.edge"
         },
         "1": {
           "name": "support.constant.edge"
@@ -2124,13 +2145,13 @@
       "name": "source.js.embedded.line.html"
     },
     {
-      "begin": "(\\s{0}|^)(\\@)\\b([a-zA-Z_]+)\\b(?=(|\\s*|)\\()",
+      "begin": "(\\s{0}|^)(\\@\\!?)\\b([a-zA-Z_]+)\\b(?=(|\\s*|)\\()",
       "beginCaptures": {
         "0": {
-          "name": "entity.name.tag.edge"
+          "name": "support.constant.edge"
         },
         "1": {
-          "name": "entity.name.tag.edge"
+          "name": "support.constant.edge"
         }
       },
       "patterns": [
@@ -2148,10 +2169,10 @@
       "name": "source.js.embedded.line.html"
     },
     {
-      "begin": "(\\s{0}|^)(\\@)\\b(endif|endforelse|endforeach|endfor|endwhile|else|endunless|show|stop|endsection|parent|overwrite|endpush|continue|break|empty|verbatim|endverbatim|js|endjs|endcomponent|endslot|endcan|endcannot)\\b",
+      "begin": "(\\s{0}|^)(\\@\\!?)\\b(endif|endforelse|endforeach|endfor|endwhile|else|endunless|show|stop|endsection|parent|overwrite|endpush|continue|break|empty|verbatim|endverbatim|js|endjs|endcomponent|endslot|endcan|endcannot)\\b",
       "beginCaptures": {
         "3": {
-          "name": "entity.name.tag.edge"
+          "name": "support.constant.edge"
         },
         "1": {
           "name": "support.constant.edge"
@@ -2170,13 +2191,13 @@
       "name": "source.js.embedded.line.html"
     },
     {
-      "begin": "(\\s{0}|^)(\\@)\\b([a-zA-Z_]+)\\b(\\s?)\\b",
+      "begin": "(\\s{0}|^)(\\@\\!?)\\b([a-zA-Z_]+)\\b(\\s?)\\b",
       "beginCaptures": {
         "0": {
-          "name": "entity.name.tag.edge"
+          "name": "support.constant.edge"
         },
         "1": {
-          "name": "entity.name.tag.edge"
+          "name": "support.constant.edge"
         }
       },
       "patterns": [
