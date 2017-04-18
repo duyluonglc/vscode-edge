@@ -1,0 +1,70 @@
+{
+  "name": "edge",
+  "displayName": "Edge template support",
+  "description": "Edge template snippets and syntax highlight support",
+  "version": "0.1.0",
+  "publisher": "luongnd",
+  "author": {
+    "name": "Duy Luong",
+    "email": "duyluonglc@gmail.com"
+  },
+  "homepage": "https://github.com/duyluonglc/vscode-edge",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/duyluonglc/vscode-edge"
+  },
+  "bugs": {
+    "url": "https://github.com/duyluonglc/vscode-edge/issues"
+  },
+  "engines": {
+    "vscode": "^1.10.0"
+  },
+  "keywords": [
+    "adonis",
+    "edge",
+    "template"
+  ],
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#f66f62",
+    "theme": "dark"
+  },
+  "categories": [
+    "Languages",
+    "Snippets"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "edge",
+        "aliases": [
+          "Edge Template",
+          "Edge",
+          "edge"
+        ],
+        "extensions": [
+          ".edge",
+          ".edge.html"
+        ],
+        "configuration": "./edge.configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "edge",
+        "scopeName": "text.html.edge",
+        "path": "./syntaxes/edge.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "edge",
+        "path": "./snippets/snippets.json"
+      },
+      {
+        "language": "edge",
+        "path": "./snippets/helpers.json"
+      }
+    ]
+  }
+}

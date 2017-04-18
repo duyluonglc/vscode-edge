@@ -1,0 +1,184 @@
+{
+	/* Extending a layout */
+	"Extend layout": {
+		"prefix": "extends",
+		"body": [
+			"@extends('${1:name}')$2"
+		],
+		"description": "Edge - extends view layout"
+	},
+	"Content Section": {
+		"prefix": "section",
+		"body": [
+			"@section('${1:name}')",
+			"  $2",
+			"@endsection"
+		],
+		"description": "Edge - content section"
+	},
+	"Content Section Show": {
+		"prefix": "section-show",
+		"body": [
+			"@section('$1')",
+			"  $2",
+			"@show"
+		],
+		"description": "Edge - content section show"
+	},
+	/* Include sub-view */
+	"Include view": {
+		"prefix": "include",
+		"body": [
+			"@include('${1:name}')$2"
+		],
+		"description": "Edge - include view"
+	},
+	/* If Statements */
+	"If-block": {
+		"prefix": "if",
+		"body": [
+			"@if($1)",
+			"  $2",
+			"@endif"
+		],
+		"description": "Edge - @if block"
+	},
+	"If-else-block": {
+		"prefix": "if-else",
+		"body": [
+			"@if($1)",
+			"  $2",
+			"@else",
+			"  $3",
+			"@endif"
+		],
+		"description": "Edge - if-else block"
+	},
+	"Has Section": {
+		"prefix": "has-section",
+		"body": [
+			"@hasSection('${1:name}')",
+			"  $2",
+			"@else",
+			"  $3",
+			"@endif"
+		],
+		"description": "Edge - @hasSection condition"
+	},
+	/* Loops */
+	"For-block": {
+		"prefix": "for",
+		"body": [
+			"@for(\\$i = ${1:0}; \\$i < ${2:\\$count}; \\$i++)",
+			"  $3",
+			"@endfor"
+		],
+		"description": "Edge - @for block"
+	},
+	"Each-block": {
+		"prefix": "each",
+		"body": [
+			"@each(${1:\\$collection} as ${2:\\$item})",
+			"  $3",
+			"@each"
+		],
+		"description": "Edge - @each block"
+	},
+	"EachElse-block": {
+		"prefix": "eachelse",
+		"body": [
+			"@each (${1:\\$collection} as ${2:\\$item})",
+			"  $3",
+			"@else",
+			"  $4",
+			"@endeach"
+		],
+		"description": "Edge - @forelse block"
+	},
+	/* Rendering views for collections */
+	"each loop": {
+		"prefix": "each",
+		"body": [
+			"@each('${1:view.name}', ${2:\\$collection}, '${3:variable}', '${4:view.empty}')$5"
+		],
+		"description": "Edge - @each loop"
+	},
+	/* Comments */
+	"edge comment": {
+		"prefix": "comment",
+		"body": [
+			"{{-- ${1:comment} --}}",
+			"$2"
+		],
+		"description": "Edge - comment block"
+	},
+	/* Display Data */
+	"edge echo-data": {
+		"prefix": "echo",
+		"body": [
+			"{{ ${1:\\$data} }}$2"
+		],
+		"description": "Edge - echo data"
+	},
+	"edge echo-unescaped-data": {
+		"prefix": "echo-html",
+		"body": [
+			"{{{ ${1:\\$html_data} }}}$2"
+		],
+		"description": "Edge - echo unescaped data (allow html outputs)"
+	},
+	"edge echo-untouch": {
+		"prefix": "echo-raw",
+		"body": [
+			"@{{ ${1:variable} }}$2"
+		],
+		"description": "Edge - echo untouched data (allow javascript expression)"
+	},	
+	/* v5.3 - $loop variable */
+	"loop": {
+		"prefix": "loop",
+		"body": [
+			"\\$loop.${1:first}$2"
+		],
+		"description": "Edge - $loop.(index|remaining|count|first|last|depth|parent)"
+	},
+	"loop first": {
+		"prefix": "loop-first",
+		"body": [
+			"@if (\\$loop.first)",
+			"    ${1:{{-- This is the first iteration --\\}\\}}",
+			"@endif",
+			"$2"
+		],
+		"description": "Edge - $loop.first"
+	},
+	"loop last": {
+		"prefix": "loop-last",
+		"body": [
+			"@if (\\$loop.last)",
+			"    ${1:{{-- This is the last iteration --\\}\\}}",
+			"@endif",
+			"$2"
+		],
+		"description": "Edge - $loop.last"
+	},
+	/* v5.4 */
+	"component": {
+		"prefix": "component",
+		"body": [
+			"@component('$1')",
+			"  $2",
+			"@endcomponent"
+		],
+		"description": "Edge - component"
+	},
+	"slot": {
+		"prefix": "slot",
+		"body": [
+			"@yield('$1')",
+			"  $2",
+			"@endyield"
+		],
+		"description": "Edge - slot"
+	}
+}
