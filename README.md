@@ -1,5 +1,7 @@
 # Edge Support
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/duyluonglc/vscode-edge.svg)](https://greenkeeper.io/)
+
 Edge snippets and syntax highlight support for Visual Studio Code.
 
 ## Screenshot
