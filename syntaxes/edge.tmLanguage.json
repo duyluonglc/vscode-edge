@@ -326,21 +326,6 @@
           "name": "keyword.control.js"
         },
         {
-          "end": "(?=\\s|;|$)",
-          "begin": "(?i)\\b((?:require|include)(?:_once)?)\\b\\s*",
-          "beginCaptures": {
-            "1": {
-              "name": "keyword.control.import.include.js"
-            }
-          },
-          "patterns": [
-            {
-              "include": "#language"
-            }
-          ],
-          "name": "meta.include.js"
-        },
-        {
           "match": "\\b(catch)\\b\\s*\\(\\s*([A-Za-z_][A-Za-z_0-9]*)\\s*((\\$+)[a-zA-Z_\\x{7f}-\\x{ff}][a-zA-Z0-9_\\x{7f}-\\x{ff}]*)\\s*\\)",
           "captures": {
             "3": {
