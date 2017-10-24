@@ -13,9 +13,9 @@ Open `Preferences` -> `User Settings`
 Add below settings to enable Emmet for edge:
 
 ```json
-"emmet.syntaxProfiles": {
+"emmet.includeLanguages": {
   "edge": "html"
-},
+}
 ```
 
 ## Features
