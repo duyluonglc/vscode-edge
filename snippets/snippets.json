@@ -81,7 +81,7 @@
 		"body": [
 			"@each(${1:item} as ${2:collection})",
 			"  $3",
-			"@each"
+			"@endeach"
 		],
 		"description": "Edge - @each array block"
 	},
@@ -90,7 +90,7 @@
 		"body": [
 			"@each(${1:key, ${2:value} in ${3:object})",
 			"  $3",
-			"@each"
+			"@endeach"
 		],
 		"description": "Edge - @each array block"
 	},
@@ -154,14 +154,14 @@
 		"description": "Edge - echo untouched data (allow javascript expression)"
 	},	
 	/* v5.3 - $loop variable */
-	"loop": {
+	"edge loop": {
 		"prefix": "loop",
 		"body": [
 			"loop.${1:first}$2"
 		],
 		"description": "Edge - $loop.(index|remaining|count|first|last|depth|parent)"
 	},
-	"loop first": {
+	"edge loop first": {
 		"prefix": "loop-first",
 		"body": [
 			"@if (loop.first)",
@@ -171,7 +171,7 @@
 		],
 		"description": "Edge - $loop.first"
 	},
-	"loop last": {
+	"edge loop last": {
 		"prefix": "loop-last",
 		"body": [
 			"@if (loop.last)",
@@ -182,7 +182,7 @@
 		"description": "Edge - $loop.last"
 	},
 	/* v5.4 */
-	"component": {
+	"edge component": {
 		"prefix": "component",
 		"body": [
 			"@component('$1')",
@@ -191,14 +191,14 @@
 		],
 		"description": "Edge - component block"
 	},
-	"component": {
+	"edge component": {
 		"prefix": "ccomponent",
 		"body": [
 			"@!component('$1')"
 		],
 		"description": "Edge - component self close"
 	},
-	"slot": {
+	"edge slot": {
 		"prefix": "yield",
 		"body": [
 			"@yield('$1')",
@@ -206,5 +206,73 @@
 			"@endyield"
 		],
 		"description": "Edge - yield slot"
+	},
+	/* adonisjs */
+	"Adonis css": {
+		"prefix": "css",
+		"body": [
+			"{{ css('$1') }}"
+		],
+		"description": "Adonis - make css link"
+	},
+	"Adonis script": {
+		"prefix": "script",
+		"body": [
+			"{{ script('$1') }}"
+		],
+		"description": "Adonis - make script link"
+	},
+	"Adonis assetsUrl": {
+		"prefix": "assetsUrl",
+		"body": [
+			"{{ assetsUrl('$1') }}"
+		],
+		"description": "Adonis - make asset link"
+	},
+	"Adonis route": {
+		"prefix": "route",
+		"body": [
+			"{{ route('$1', { $2 }) }}"
+		],
+		"description": "Adonis - make link from route"
+	},
+	"Adonis url": {
+		"prefix": "url",
+		"body": [
+			"{{ url }}"
+		],
+		"description": "Adonis - current url"
+	},
+	"Adonis auth-user": {
+		"prefix": "auth-user",
+		"body": [
+			"{{ auth.user }}"
+		],
+		"description": "Adonis - current auth user"
+	},
+	"Adonis csrf": {
+		"prefix": "csrf",
+		"body": [
+			"{{ csrfField() }}"
+		],
+		"description": "Adonis - csrf field"
+	},
+	"Adonis cspMeta": {
+		"prefix": "cspMeta",
+		"body": [
+			"{{ cspMeta() }}"
+		],
+		"description": "Adonis - meta tag"
+	},
+	"Adonis Logged-in-block": {
+		"prefix": "logged-in",
+		"body": [
+			"@loggedIn",
+			"  $1",
+			"@else",
+			"  $2",
+			"@endloggedIn"
+		],
+		"description": "Edge - @loggedIn else block"
 	}
 }
