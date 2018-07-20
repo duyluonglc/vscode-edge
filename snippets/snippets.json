@@ -295,5 +295,12 @@
 			"@super"
 		],
 		"description": "Edge - Super extend"
+    },
+    "edge Include Svg": {
+		"prefix": "includeSvg",
+		"body": [
+			"@inlineSvg('${1:name}')$2"
+		],
+		"description": "Edge - include Svg"
 	}
 }
