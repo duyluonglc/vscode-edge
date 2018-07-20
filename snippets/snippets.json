@@ -182,8 +182,8 @@
 		"description": "Edge - $loop.last"
 	},
 	/* v5.4 */
-	"edge component": {
-		"prefix": "component",
+	"edge component block": {
+		"prefix": "component-block",
 		"body": [
 			"@component('$1')",
 			"  $2",
@@ -274,5 +274,26 @@
 			"@endloggedIn"
 		],
 		"description": "Edge - @loggedIn else block"
+    },
+    "edge Layout view": {
+		"prefix": "layout",
+		"body": [
+			"@layout('${1:name}')"
+		],
+		"description": "Edge - Layout view"
+	},
+    "edge Debug block": {
+		"prefix": "debugger",
+		"body": [
+			"@debugger\n"
+		],
+		"description": "Edge - Debug block"
+    },
+    "edge Super extend": {
+		"prefix": "super",
+		"body": [
+			"@super"
+		],
+		"description": "Edge - Super extend"
 	}
 }
