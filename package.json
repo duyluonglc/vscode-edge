@@ -2,7 +2,7 @@
   "name": "edge",
   "displayName": "Edge template support",
   "description": "Edge template snippets and syntax highlight support",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "publisher": "luongnd",
   "author": {
     "name": "Duy Luong",
