@@ -1,1 +1,10 @@
-.vscode/**/*
+out
+node_modules
+*.vsix
+**/*.log
+.vscode/tests/
+**/temp/
+/node_modules
+/server/node_modules
+/.vscode
+/.vscode-test
