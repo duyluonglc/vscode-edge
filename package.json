@@ -1,8 +1,8 @@
 {
   "name": "edge",
   "displayName": "Edge template support",
-  "description": "Edge template snippets and syntax highlight support",
-  "version": "0.2.2",
+  "description": "Edge template support and syntax highlight support",
+  "version": "0.3.0",
   "publisher": "luongnd",
   "author": {
     "name": "Duy Luong",
@@ -17,12 +17,14 @@
     "url": "https://github.com/duyluonglc/vscode-edge/issues"
   },
   "engines": {
-    "vscode": "^1.10.0"
+    "vscode": "^1.16.0"
   },
   "keywords": [
     "adonis",
     "edge",
-    "template"
+    "template",
+    "snippet",
+    "formatter"
   ],
   "icon": "images/icon.png",
   "galleryBanner": {
@@ -31,8 +33,17 @@
   },
   "categories": [
     "Languages",
-    "Snippets"
+    "Snippets",
+    "Formatters"
   ],
+  "main": "./out/src/extension",
+  "scripts": {
+    "build-srv": "cd ./server && npm install && tsc -p ./",
+    "vscode:prepublish": "tsc -p ./ && pushd \"./\" && npm run build-srv && popd",
+    "compile": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
   "contributes": {
     "languages": [
       {
@@ -53,7 +64,11 @@
       {
         "language": "edge",
         "scopeName": "text.html.edge",
-        "path": "./syntaxes/edge.tmLanguage.json"
+        "path": "./syntaxes/edge.tmLanguage.json",
+        "embeddedLanguages": {
+          "source.css": "css",
+          "source.js": "javascript"
+        }
       }
     ],
     "snippets": [
@@ -65,6 +80,29 @@
         "language": "edge",
         "path": "./snippets/helpers.json"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Edge Configuration",
+      "properties": {
+        "edge.format.enable": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable format edge file"
+        }
+      }
+    }
+  },
+  "activationEvents": [
+    "onLanguage:edge"
+  ],
+  "devDependencies": {
+    "@types/node": "^8.0.17",
+    "vscode": "^1.1.6"
+  },
+  "dependencies": {
+    "vscode-css-languageservice": "^3.0.8",
+    "vscode-html-languageservice": "^2.1.2",
+    "vscode-languageclient": "^3.5.0",
+    "vscode-languageserver-types": "^3.5.0"
   }
 }
