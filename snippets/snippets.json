@@ -97,7 +97,7 @@
 	"edge Each-Else-block": {
 		"prefix": "each-else",
 		"body": [
-			"@each (${1:item} in ${2:collection})",
+			"@each(${1:item} in ${2:collection})",
 			"  $3",
 			"@else",
 			"  $4",
@@ -153,18 +153,17 @@
 		],
 		"description": "Edge - echo untouched data (allow javascript expression)"
 	},	
-	/* v5.3 - $loop variable */
 	"edge loop": {
 		"prefix": "loop",
 		"body": [
-			"loop.${1:first}$2"
+			"@loop.${1:first}$2"
 		],
 		"description": "Edge - $loop.(index|remaining|count|first|last|depth|parent)"
 	},
 	"edge loop first": {
 		"prefix": "loop-first",
 		"body": [
-			"@if (loop.first)",
+			"@if($loop.first)",
 			"  ${1:{{-- This is the first iteration --\\}\\}}",
 			"@endif",
 			"$2"
@@ -174,14 +173,13 @@
 	"edge loop last": {
 		"prefix": "loop-last",
 		"body": [
-			"@if (loop.last)",
+			"@if($loop.last)",
 			"  ${1:{{-- This is the last iteration --\\}\\}}",
 			"@endif",
 			"$2"
 		],
 		"description": "Edge - $loop.last"
 	},
-	/* v5.4 */
 	"edge component block": {
 		"prefix": "component-block",
 		"body": [
