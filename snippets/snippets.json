@@ -156,14 +156,14 @@
 	"edge loop": {
 		"prefix": "loop",
 		"body": [
-			"@loop.${1:first}$2"
+			"$$loop.${1:first}$2"
 		],
 		"description": "Edge - $loop.(index|remaining|count|first|last|depth|parent)"
 	},
 	"edge loop first": {
 		"prefix": "loop-first",
 		"body": [
-			"@if($loop.first)",
+			"@if($$loop.first)",
 			"  ${1:{{-- This is the first iteration --\\}\\}}",
 			"@endif",
 			"$2"
@@ -173,7 +173,7 @@
 	"edge loop last": {
 		"prefix": "loop-last",
 		"body": [
-			"@if($loop.last)",
+			"@if($$loop.last)",
 			"  ${1:{{-- This is the last iteration --\\}\\}}",
 			"@endif",
 			"$2"
