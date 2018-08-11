@@ -153,33 +153,60 @@
 		],
 		"description": "Edge - echo untouched data (allow javascript expression)"
 	},	
-	"edge loop": {
-		"prefix": "loop",
+	"edge loop index": {
+		"prefix": "loop-index",
 		"body": [
-			"$$loop.${1:first}$2"
+			"\\$loop.${1:index}$2"
 		],
-		"description": "Edge - $loop.(index|remaining|count|first|last|depth|parent)"
-	},
+		"description": "Edge - Holds the iteration index, start from 0"
+    },
+	"edge loop total": {
+		"prefix": "loop-total",
+		"body": [
+			"\\$loop.${1:total}$2"
+		],
+		"description": "Edge - The total number of items"
+    },
 	"edge loop first": {
 		"prefix": "loop-first",
 		"body": [
-			"@if($$loop.first)",
+			"@if(\\$loop.first)",
 			"  ${1:{{-- This is the first iteration --\\}\\}}",
 			"@endif",
 			"$2"
 		],
-		"description": "Edge - $loop.first"
+		"description": "Edge - Whether or not the item is the first in the loop"
 	},
 	"edge loop last": {
 		"prefix": "loop-last",
 		"body": [
-			"@if($$loop.last)",
+			"@if(\\$loop.last)",
 			"  ${1:{{-- This is the last iteration --\\}\\}}",
 			"@endif",
 			"$2"
 		],
-		"description": "Edge - $loop.last"
-	},
+		"description": "Edge - Whether or not the item is the last in the loop"
+    },
+    "edge loop isEven": {
+		"prefix": "loop-isEven",
+		"body": [
+			"@if(\\$loop.isEven)",
+			"  ${1:{{-- This is the isEven code --\\}\\}}",
+			"@endif",
+			"$2"
+		],
+		"description": "Edge - Whether or not an iteration count is an even number"
+    },
+    "edge loop isOdd": {
+		"prefix": "loop-isOdd",
+		"body": [
+			"@if(\\$loop.isOdd)",
+			"  ${1:{{-- This is the isOdd code --\\}\\}}",
+			"@endif",
+			"$2"
+		],
+		"description": "Edge - Whether or not an iteration count is an odd number. The first item returns true for isOdd"
+    },
 	"edge component block": {
 		"prefix": "component-block",
 		"body": [
