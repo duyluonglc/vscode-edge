@@ -100,9 +100,9 @@
     "vscode": "^1.1.6"
   },
   "dependencies": {
-  "vscode-css-languageservice": "^3.0.13",
-  "vscode-html-languageservice": "^2.1.12",
-  "vscode-languageclient": "^3.5.1",
-  "vscode-languageserver-types": "^3.14.0"
+    "vscode-css-languageservice": "^3.0.13",
+    "vscode-html-languageservice": "^2.1.12",
+    "vscode-languageclient": "^3.5.1",
+    "vscode-languageserver-types": "^3.14.0"
   }
 }
