@@ -24,6 +24,10 @@ export class EdgeFormattingEditProvider implements vscode.DocumentFormattingEdit
             insertSpaces: options.insertSpaces
         };
 
+        //  Mapping HTML format options
+        let htmlFormatConfig = vscode.workspace.getConfiguration('html.format');
+        Object.assign(options, htmlFormatConfig);
+
         // format as html
         let doc = lst.TextDocument.create(document.uri.fsPath, 'html', 1, document.getText());
         let htmlTextEdit = service.format(doc, range, options);

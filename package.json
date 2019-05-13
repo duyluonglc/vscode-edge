@@ -2,7 +2,7 @@
   "name": "edge",
   "displayName": "Edge template support",
   "description": "Edge template support and syntax highlight support",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "publisher": "luongnd",
   "author": {
     "name": "Duy Luong",
@@ -100,9 +100,9 @@
     "vscode": "^1.1.6"
   },
   "dependencies": {
-    "vscode-css-languageservice": "^3.0.8",
-    "vscode-html-languageservice": "^2.1.2",
-    "vscode-languageclient": "^3.5.0",
-    "vscode-languageserver-types": "^3.5.0"
+  "vscode-css-languageservice": "^3.0.13",
+  "vscode-html-languageservice": "^2.1.12",
+  "vscode-languageclient": "^3.5.1",
+  "vscode-languageserver-types": "^3.14.0"
   }
 }
