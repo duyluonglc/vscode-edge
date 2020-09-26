@@ -27,7 +27,7 @@ Add below settings to enable Emmet for edge:
 * Edge snippets
 * Emmet works in edge template
 
-## Edge Syntax Hightlight
+## Edge Syntax Highlight
 
 * Auto detected with `.edge.html .edge` extension
 
