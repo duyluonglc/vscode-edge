@@ -79,7 +79,7 @@
 	"edge Each-array-block": {
 		"prefix": "each-array",
 		"body": [
-			"@each(${1:item} as ${2:collection})",
+			"@each(${1:item} in ${2:collection})",
 			"  $3",
 			"@endeach"
 		],
