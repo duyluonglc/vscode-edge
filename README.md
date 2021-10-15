@@ -21,6 +21,16 @@ Add below settings to enable Emmet for edge:
 }
 ```
 
+## Installation
+* On Windows: To open VS Code extentsion marketplace use any of these:
+  * `Ctrl+Shif+X`
+  * Or click on the `View` menu. On the drop down appears click `extensions`
+* On the Search bar: `(Search Extension marketplace)` box, slightly above `Intalled`:
+  * Type this VS code entension name: **Edge template support** 
+  * You will see the one by **Luong Nguyen**
+  * Click on install
+* Done! 
+ 
 ## Features
 
 * Edge syntax highlight
